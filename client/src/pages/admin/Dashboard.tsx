@@ -100,7 +100,7 @@ const AdminDashboard = () => {
             <h1 className="text-2xl font-bold text-gray-900">Admin Analytics Dashboard</h1>
 
             {/* Stats Cards */}
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4">
                 <div className="bg-white overflow-hidden shadow rounded-lg">
                     <div className="p-5">
                         <div className="flex items-center">
@@ -170,7 +170,7 @@ const AdminDashboard = () => {
                 {/* Chart - Takes 2 columns */}
                 <div className="lg:col-span-2 bg-white shadow rounded-lg p-6">
                     <h3 className="text-lg leading-6 font-medium text-gray-900 mb-4">Weekly Appointment Analytics</h3>
-                    <div className="h-80">
+                    <div className="h-64 md:h-80">
                         <ResponsiveContainer width="100%" height="100%">
                             <BarChart data={chartData}>
                                 <CartesianGrid strokeDasharray="3 3" />
