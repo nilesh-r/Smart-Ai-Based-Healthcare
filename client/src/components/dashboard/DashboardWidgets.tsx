@@ -19,7 +19,7 @@ export const MetricCard: React.FC<MetricCardProps> = ({ title, value, unit, icon
     const displayColor = color || (type === 'heart' ? 'primary' : type === 'blood' ? 'secondary' : 'amber');
 
     return (
-        <div className="bg-white rounded-4xl p-6 shadow-soft hover:shadow-soft-xl transition-all duration-300 relative overflow-hidden group">
+        <div className="bg-white rounded-4xl p-4 md:p-6 shadow-soft hover:shadow-soft-xl transition-all duration-300 relative overflow-hidden group">
             <div className="flex justify-between items-start mb-4">
                 <h3 className="text-slate-500 font-medium text-sm">{displayTitle}</h3>
                 <div className={`p-2 rounded-full bg-${displayColor}-50 text-${displayColor}-600`}>
@@ -107,7 +107,7 @@ export const SupplementCard: React.FC<{ name: string, type: string, index: numbe
 }
 
 export const UpcomingAppointmentCard = () => (
-    <Link to="/patient/appointments" className="bg-white rounded-[2.5rem] p-6 shadow-soft h-full flex justify-between items-center group cursor-pointer hover:shadow-soft-xl transition-all">
+    <Link to="/patient/appointments" className="bg-white rounded-[2.5rem] p-4 md:p-6 shadow-soft h-full flex justify-between items-center group cursor-pointer hover:shadow-soft-xl transition-all">
         <div>
             <h3 className="text-slate-900 font-heading font-bold text-lg">Upcoming<br />Appointment</h3>
         </div>

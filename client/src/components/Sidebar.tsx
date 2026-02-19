@@ -2,7 +2,12 @@ import { Link, useLocation } from 'react-router-dom';
 import { LayoutDashboard, User, Calendar, FileText, Activity, Settings as SettingsIcon, Stethoscope, Users, Pill } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
-const Sidebar = () => {
+interface SidebarProps {
+    isOpen?: boolean;
+    onClose?: () => void;
+}
+
+const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
     const location = useLocation();
     const { profile } = useAuth();
     const role = profile?.role;
@@ -35,33 +40,57 @@ const Sidebar = () => {
 
     const links = role === 'admin' ? adminLinks : role === 'doctor' ? doctorLinks : patientLinks;
 
-    return (
-        <div className="hidden md:flex flex-col w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 h-[calc(100vh-4rem)] transition-all duration-300">
-            <div className="flex flex-col flex-grow pt-5 pb-4 overflow-y-auto">
-                <div className="flex-grow flex flex-col space-y-1 px-3">
-                    {links.map((link) => {
-                        const Icon = link.icon;
-                        const active = isActive(link.path);
-                        return (
-                            <Link
-                                key={link.name}
-                                to={link.path}
-                                className={`group flex items-center px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200 ${active
-                                    ? 'bg-gradient-to-r from-primary-600 to-primary-500 text-white shadow-lg shadow-primary-500/30'
-                                    : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100'
+    const SidebarContent = () => (
+        <div className="flex flex-col flex-grow pt-5 pb-4 overflow-y-auto">
+            <div className="flex-grow flex flex-col space-y-1 px-3">
+                {links.map((link) => {
+                    const Icon = link.icon;
+                    const active = isActive(link.path);
+                    return (
+                        <Link
+                            key={link.name}
+                            to={link.path}
+                            onClick={onClose}
+                            className={`group flex items-center px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200 ${active
+                                ? 'bg-gradient-to-r from-primary-600 to-primary-500 text-white shadow-lg shadow-primary-500/30'
+                                : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100'
+                                }`}
+                        >
+                            <Icon
+                                className={`mr-3 flex-shrink-0 h-5 w-5 ${active ? 'text-white' : 'text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300'
                                     }`}
-                            >
-                                <Icon
-                                    className={`mr-3 flex-shrink-0 h-5 w-5 ${active ? 'text-white' : 'text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300'
-                                        }`}
-                                />
-                                {link.name}
-                            </Link>
-                        );
-                    })}
-                </div>
+                            />
+                            {link.name}
+                        </Link>
+                    );
+                })}
             </div>
         </div>
+    );
+
+    return (
+        <>
+            {/* Desktop Sidebar */}
+            <div className="hidden md:flex flex-col w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 h-[calc(100vh-4rem)] transition-all duration-300">
+                <SidebarContent />
+            </div>
+
+            {/* Mobile Sidebar */}
+            {isOpen && (
+                <div className="md:hidden fixed inset-0 z-50 flex">
+                    <div className="fixed inset-0 bg-gray-600 bg-opacity-75 transition-opacity" onClick={onClose} />
+                    <div className="relative flex-1 flex flex-col max-w-xs w-full bg-white dark:bg-gray-900 shadow-xl transition-all duration-300 transform">
+                        <div className="pt-5 pb-4">
+                            <div className="flex-shrink-0 flex items-center px-4 mb-5">
+                                <Activity className="h-8 w-8 text-primary-600" />
+                                <span className="ml-2 text-xl font-bold text-gray-900 dark:text-white">HealthAI</span>
+                            </div>
+                            <SidebarContent />
+                        </div>
+                    </div>
+                </div>
+            )}
+        </>
     );
 };
 

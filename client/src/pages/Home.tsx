@@ -90,7 +90,7 @@ const Home = () => {
             <HeroBackground />
 
             {/* Hero Section */}
-            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20 md:pt-32">
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 md:pt-32 md:pb-20">
                 <motion.div
                     className="text-center max-w-4xl mx-auto"
                     variants={containerVariants}
@@ -102,7 +102,7 @@ const Home = () => {
                         <span>AI-Powered Healthcare Ecosystem</span>
                     </motion.div>
 
-                    <motion.h1 className="text-5xl md:text-7xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-8" variants={itemVariants}>
+                    <motion.h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-8" variants={itemVariants}>
                         Your Health, Reimagined with <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-600">Intelligent Care</span>
                     </motion.h1>
 
