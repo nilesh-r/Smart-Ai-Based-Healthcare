@@ -1,95 +1,129 @@
 # 🏥 Smart AI-Based Healthcare System
 
-Welcome to the **Smart AI-Based Healthcare System**! This is a modern web application designed to help doctors manage patients and help patients check their symptoms using advanced Artificial Intelligence.
+A modern, intelligent healthcare platform connecting patients, doctors, and administrators. This application leverages **Google Gemini 2.0 Flash** for AI-powered symptom checking and **Supabase** for real-time data management.
+
+![Project Banner](https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3)
 
 ---
 
 ## 🚀 Key Features
 
-### 1. 🤖 AI Symptom Checker (The "Brain")
--   **What it does:** You describe your symptoms (e.g., "I have a headache and fever"), and the AI acts like a doctor.
--   **How it works:** It uses **Google Gemini 2.0 Flash** (a super-smart AI) to analyze your text.
--   **Smart & Safe:**
-    -   It gives a diagnosis, severity level, and suggests which specialist to see.
-    -   It acts responsibly: If the AI is "busy" (rate limited), it politely asks you to wait instead of crashing.
-    -   It recommends *safe* over-the-counter medicines for temporary relief.
+### 🤖 AI Symptom Checker ("The Brain")
+-   **Analyze Symptoms:** Patients can describe their symptoms in plain English.
+-   **Powered by Gemini 2.0:** Uses advanced LLMs to provide preliminary diagnoses, severity assessments, and specialist recommendations.
+-   **Safety First:** Recognizes emergencies and advises immediate care when necessary.
 
-### 2. 📝 Digital Prescription Pad
--   **For Doctors:** A dedicated dashboard to write prescriptions.
--   **No Appointment Needed:** Doctors can now save a prescription for *anyone* instantly.
--   **Saved Securely:** All prescriptions are saved directly to the database so they are never lost.
+### 🩺 Doctor Dashboard & Utilities
+-   **Patient Management:** View and manage patient records.
+-   **Digital Prescription Pad:** Instantly generate and save prescriptions.
+-   **Medical Reports:** Upload and review patient medical history.
+-   **Real-time Messaging:** Communicate with patients directly (in development).
 
-### 3. 🛡️ Security & Privacy (HIPAA Ready)
--   **Private Data:** Doctors can only see their own patients. Patients can only see their own data.
--   **Audit Logs:** The system secretly tracks *everything*. If someone adds a report or writes a prescription, it is logged in a secure "Audit Trail" so admins know exactly who did what.
+### 👑 Admin & Role Management
+-   **Role-Based Access:** Distinct portals for **Admins**, **Doctors**, and **Patients**.
+-   **User Oversight:** Admins can manage all user accounts and view system-wide statistics.
+-   **Audit Trails:** Secure logging of all critical actions for HIPAA compliance readiness.
 
-### 4. 🎨 Modern Design
--   **Beautiful UI:** Glass-like cards, smooth animations, and a professional medical color scheme (Teal & Indigo).
--   **Mobile Friendly:** Works great on phones and computers.
-
-### 5. 👑 Admin Dashboard & Role Management
--   **Comprehensive Oversight:** Admins can view and manage all registered Doctors and Patients.
--   **Strict Role Separation:** Users are assigned specific roles (Patient, Doctor, Admin) with tailored access privileges.
--   **Professional Profiles:** Doctors can create detailed profiles with specializations, experience, and bios.
-
-### 6. ⚡ Real-Time Data Sync
--   **Instant Updates:** Powered by **Supabase Realtime**, the Admin Dashboard updates instantly when new users register or update their profiles—no page refresh required.
--   **Live Monitoring:** Watch the platform grow in real-time.
+### ⚡ Technical Highlights
+-   **Real-Time Sync:** powered by Supabase Realtime for instant dashboard updates.
+-   **Modern UI/UX:** Built with React, Tailwind CSS, and Framer Motion for a glassmorphism-inspired, responsive design.
+-   **Secure Authentication:** Row Level Security (RLS) ensures data privacy.
 
 ---
 
-## 🛠️ How to Run the Project
+## 🛠️ Tech Stack
 
-This project has two parts: the **Frontend** (what you see) and the **Backend** (the AI brain). You need to run **BOTH** for everything to work.
+### Frontend (Client)
+-   **Framework:** [React 19](https://react.dev/) + [Vite](https://vitejs.dev/)
+-   **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
+-   **Icons & UI:** [Lucide React](https://lucide.dev/), [Framer Motion](https://www.framer.com/motion/)
+-   **Charts:** [Recharts](https://recharts.org/)
+-   **State/Data:** [Supabase Client](https://supabase.com/docs/reference/javascript/introduction)
 
-### Step 1: Start the Frontend (The Website)
-1.  Open a terminal in the `client` folder.
-2.  Run this command:
-    ```bash
-    npm run dev
-    ```
-3.  Click the link (usually `http://localhost:5173`) to open the app.
+### Backend (Server)
+-   **Framework:** [FastAPI](https://fastapi.tiangolo.com/) (Python)
+-   **AI Model:** Google Gemini 2.0 Flash (via `google-genai` SDK)
+-   **Server:** Uvicorn
 
-### Step 2: Start the Backend (The AI Server)
-1.  Open a **new** terminal (keep the first one running!).
-2.  Go to the `server` folder:
-    ```bash
-    cd server
-    ```
-3.  Run the server:
-    ```bash
-    python main.py
-    ```
-4.  You will see: `INFO: AI Server running in REAL INTELLIGENCE mode`.
+### Database
+-   **Platform:** [Supabase](https://supabase.com/) (PostgreSQL)
+-   **Features:** Auth, Database, Realtime, Storage
 
 ---
 
-## 📂 Project Structure (Where is everything?)
+## 📦 Installation & Setup
 
--   **`client/` (The Frontend)**
-    -   `src/pages/`: All the screens (Home, Dashboard, Symptom Checker).
-    -   `src/pages/admin/`: Admin-specific dashboards for managing users.
-    -   `src/components/`: Reusable parts like Buttons, Cards, and the Navbar.
-    -   `src/lib/`: Helpers for database connection (Supabase).
+### Prerequisites
+-   Node.js (v18+)
+-   Python (v3.9+)
+-   Supabase Account & Project
+-   Google AI Studio API Key
 
--   **`server/` (The Backend)**
-    -   `main.py`: The entry point for the Python server.
-    -   `ai_model.py`: The brain code that talks to Google Gemini.
-    -   `.env`: Where your secret API Key acts.
+### 1. Clone the Repository
+```bash
+git clone <repository-url>
+cd Smart-Ai-Based-Healthcare
+```
 
--   **`database/`**
-    -   SQL scripts used to set up the database tables and security rules.
+### 2. Frontend Setup
+Navigate to the client directory and install dependencies:
+```bash
+cd client
+npm install
+```
+Create a `.env.local` file in `client/` with your Supabase keys:
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+Run the development server:
+```bash
+npm run dev
+```
+*Access the frontend at `http://localhost:5173`*
+
+### 3. Backend Setup
+Open a new terminal, navigate to the server directory, and install dependencies:
+```bash
+cd server
+pip install -r requirements.txt
+```
+Create a `.env` file in `server/` with your Gemini API key:
+```env
+GEMINI_API_KEY=your_gemini_api_key
+```
+Start the FastAPI server:
+```bash
+python main.py
+```
+*The API will run at `http://localhost:8000`*
 
 ---
 
-## 💡 Troubleshooting
+## 📂 Project Structure
 
--   **"System Busy" Message?**
-    -   The AI performs very complex thinking. If you ask too many questions too fast, it might say "System Busy". Just wait **60 seconds** and try again. It's protecting itself from overload!
+```
+Smart-Ai-Based-Healthcare/
+├── client/                 # React Frontend
+│   ├── src/
+│   │   ├── pages/          # Application routes (Dashboards, Login, etc.)
+│   │   ├── components/     # Reusable UI components
+│   │   ├── lib/            # Supabase configuration
+│   │   └── ...
+│   ├── package.json
+│   └── ...
+├── server/                 # FastAPI Backend
+│   ├── main.py             # Server entry point
+│   ├── ai_model.py         # Gemini AI integration logic
+│   ├── requirements.txt
+│   └── ...
+├── database/               # SQL Migrations & Schemas
+└── README.md
+```
 
--   **"Connection Refused"?**
-    -   Make sure the Python server (Step 2) is actually running!
+## 🤝 Contributing
+Contributions are welcome! Please open an issue or submit a pull request for any improvements.
 
 ---
 
-*Built with ❤️ using React, Python, Supabase, and Google Gemini.*
+*Built with ❤️ for the future of healthcare.*
