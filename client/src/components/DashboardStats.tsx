@@ -18,10 +18,10 @@ interface DashboardStatsProps {
 const colorMap = {
     primary: 'bg-primary-50 text-primary-600',
     secondary: 'bg-secondary-50 text-secondary-600',
-    emerald: 'bg-emerald-50 text-emerald-600',
+    emerald: 'bg-secondary-50 text-secondary-600',
     rose: 'bg-rose-50 text-rose-600',
     amber: 'bg-amber-50 text-amber-600',
-    blue: 'bg-blue-50 text-blue-600',
+    blue: 'bg-primary-50 text-primary-600',
 };
 
 const DashboardStats: React.FC<DashboardStatsProps> = ({
@@ -46,7 +46,7 @@ const DashboardStats: React.FC<DashboardStatsProps> = ({
 
                     {trend && (
                         <div className="flex items-center mt-2 text-sm">
-                            <span className={`font-medium ${trend.positive ? 'text-emerald-600' : 'text-rose-600'}`}>
+                            <span className={`font-medium ${trend.positive ? 'text-secondary-600' : 'text-rose-600'}`}>
                                 {trend.positive ? '+' : ''}{trend.value}%
                             </span>
                             <span className="text-slate-400 ml-1">{trend.label}</span>

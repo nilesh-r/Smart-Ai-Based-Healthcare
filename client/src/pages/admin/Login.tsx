@@ -73,7 +73,7 @@ const AdminLogin = () => {
         <div className="min-h-screen bg-gray-900 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-md">
                 <div className="flex justify-center">
-                    <Shield className="h-12 w-12 text-blue-500" />
+                    <Shield className="h-12 w-12 text-primary-500" />
                 </div>
                 <h2 className="mt-6 text-center text-3xl font-extrabold text-white">
                     Admin Portal

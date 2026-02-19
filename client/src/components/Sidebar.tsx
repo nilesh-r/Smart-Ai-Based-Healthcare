@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { LayoutDashboard, User, Calendar, FileText, Activity, Settings as SettingsIcon, Stethoscope, Users } from 'lucide-react';
+import { LayoutDashboard, User, Calendar, FileText, Activity, Settings as SettingsIcon, Stethoscope, Users, Pill } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 const Sidebar = () => {
@@ -14,6 +14,7 @@ const Sidebar = () => {
         { name: 'Find Doctors', path: '/patient/find-doctors', icon: User },
         { name: 'My Appointments', path: '/patient/appointments', icon: Calendar },
         { name: 'Medical Reports', path: '/patient/reports', icon: FileText },
+        { name: 'Prescriptions', path: '/patient/prescriptions', icon: Pill },
         { name: 'Symptom Checker', path: '/patient/symptom-checker', icon: Activity },
         { name: 'Settings', path: '/settings', icon: SettingsIcon },
     ];
@@ -46,7 +47,7 @@ const Sidebar = () => {
                                 key={link.name}
                                 to={link.path}
                                 className={`group flex items-center px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200 ${active
-                                    ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-lg shadow-blue-500/30'
+                                    ? 'bg-gradient-to-r from-primary-600 to-primary-500 text-white shadow-lg shadow-primary-500/30'
                                     : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100'
                                     }`}
                             >

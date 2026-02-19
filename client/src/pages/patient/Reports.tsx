@@ -124,7 +124,7 @@ const Reports = () => {
                                 type="file"
                                 required
                                 onChange={handleFileChange}
-                                className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                                className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100"
                             />
                         </div>
                     </div>
@@ -165,7 +165,7 @@ const Reports = () => {
                         reports.map((report) => (
                             <li key={report.id} className="px-6 py-4 flex items-center justify-between hover:bg-gray-50">
                                 <div className="flex items-center">
-                                    <FileText className="h-8 w-8 text-blue-400" />
+                                    <FileText className="h-8 w-8 text-primary-400" />
                                     <div className="ml-4">
                                         <p className="text-sm font-medium text-gray-900">{report.title}</p>
                                         <div className="flex space-x-4 text-xs text-gray-500 mt-1">

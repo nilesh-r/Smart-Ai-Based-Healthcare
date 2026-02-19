@@ -83,7 +83,7 @@ const Patients = () => {
                 <h1 className="text-2xl font-bold text-gray-900 dark:text-white">My Patients</h1>
                 <button
                     onClick={() => setShowAddModal(true)}
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2"
+                    className="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg flex items-center gap-2"
                 >
                     <User size={18} />
                     Add Patient
@@ -139,7 +139,7 @@ const Patients = () => {
                                 </button>
                                 <button
                                     type="submit"
-                                    className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                                    className="flex-1 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700"
                                 >
                                     Save Patient
                                 </button>
@@ -157,7 +157,7 @@ const Patients = () => {
                     </div>
                     <input
                         type="text"
-                        className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-primary-500 focus:border-primary-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                         placeholder="Search patients by name or email..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
@@ -183,12 +183,12 @@ const Patients = () => {
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-center">
                                         <div className="flex-shrink-0">
-                                            <span className="h-10 w-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold">
+                                            <span className="h-10 w-10 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-600 dark:text-primary-400 font-bold">
                                                 {patient.full_name?.charAt(0) || 'U'}
                                             </span>
                                         </div>
                                         <div className="ml-4">
-                                            <div className="text-sm font-medium text-blue-600 dark:text-blue-400 truncate">{patient.full_name}</div>
+                                            <div className="text-sm font-medium text-primary-600 dark:text-primary-400 truncate">{patient.full_name}</div>
                                             <div className="text-sm text-gray-500 dark:text-gray-400">{patient.email}</div>
                                             {patient.is_mock && <span className="text-[10px] bg-gray-100 text-gray-500 px-1 rounded">Manually Added</span>}
                                         </div>
@@ -199,7 +199,7 @@ const Patients = () => {
                                                 // Simplified "History" view for now
                                                 alert(`History for ${patient.full_name}:\n\n- Visit 1: Regular Checkup\n- Visit 2: Follow-up\n\n(Full history module coming soon)`);
                                             }}
-                                            className="inline-flex items-center px-3 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-blue-600 hover:bg-blue-700"
+                                            className="inline-flex items-center px-3 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-primary-600 hover:bg-primary-700"
                                         >
                                             <FileText className="h-3 w-3 mr-1" />
                                             History

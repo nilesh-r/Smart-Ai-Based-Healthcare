@@ -117,7 +117,7 @@ const AdminDoctors = () => {
         <div className="space-y-6">
             <div className="flex justify-between items-center">
                 <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100 flex items-center">
-                    <Stethoscope className="mr-3 h-8 w-8 text-blue-600" />
+                    <Stethoscope className="mr-3 h-8 w-8 text-primary-600" />
                     Manage Doctors
                 </h1>
                 <Button onClick={() => alert('Add Doctor Feature Coming Soon!')}>
@@ -132,7 +132,7 @@ const AdminDoctors = () => {
                     <input
                         type="text"
                         placeholder="Search by name or specialization..."
-                        className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50 dark:bg-gray-700 dark:text-white"
+                        className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-primary-500 bg-gray-50 dark:bg-gray-700 dark:text-white"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
@@ -181,7 +181,7 @@ const AdminDoctors = () => {
                                         <td className="px-6 py-4 whitespace-nowrap">
                                             <div className="flex items-center">
                                                 <div className="h-10 w-10 flex-shrink-0">
-                                                    <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-lg">
+                                                    <div className="h-10 w-10 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 font-bold text-lg">
                                                         {doc.profiles?.full_name?.charAt(0) || 'D'}
                                                     </div>
                                                 </div>
@@ -192,13 +192,13 @@ const AdminDoctors = () => {
                                             </div>
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap">
-                                            <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${doc.profiles.role === 'doctor' ? 'bg-indigo-100 text-indigo-800' : 'bg-gray-100 text-gray-800'
+                                            <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${doc.profiles.role === 'doctor' ? 'bg-primary-100 text-primary-800' : 'bg-gray-100 text-gray-800'
                                                 }`}>
                                                 {doc.profiles.role}
                                             </span>
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap">
-                                            <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+                                            <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-secondary-100 text-secondary-800 dark:bg-secondary-900 dark:text-secondary-200">
                                                 {doc.specialization}
                                             </span>
                                         </td>
@@ -206,14 +206,14 @@ const AdminDoctors = () => {
                                             {doc.experience_years} years
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap">
-                                            <span className="flex items-center text-green-500 text-sm font-medium">
+                                            <span className="flex items-center text-secondary-500 text-sm font-medium">
                                                 <CheckCircle className="w-4 h-4 mr-1" />
                                                 Active
                                             </span>
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                             <button
-                                                className="text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-300 mr-4"
+                                                className="text-primary-600 hover:text-primary-900 dark:text-primary-400 dark:hover:text-primary-300 mr-4"
                                                 onClick={() => alert(`Edit ${doc.profiles?.full_name}`)}
                                             >
                                                 <Edit className="w-5 h-5" />

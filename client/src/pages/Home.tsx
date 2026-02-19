@@ -6,7 +6,7 @@ import { Activity, Shield, Clock, CheckCircle, ArrowRight, Sparkles } from 'luci
 
 const HeroBackground = () => (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-white to-indigo-50/50 z-0" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-50/50 via-white to-secondary-50/50 z-0" />
 
         {/* Animated Orbs */}
         <motion.div
@@ -25,7 +25,7 @@ const HeroBackground = () => (
                 opacity: [0.3, 0.6, 0.3]
             }}
             transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-            className="absolute bottom-40 right-20 w-[500px] h-[500px] bg-indigo-200/20 rounded-full blur-3xl"
+            className="absolute bottom-40 right-20 w-[500px] h-[500px] bg-secondary-200/20 rounded-full blur-3xl"
         />
 
         {/* Grid Pattern */}
@@ -103,7 +103,7 @@ const Home = () => {
                     </motion.div>
 
                     <motion.h1 className="text-5xl md:text-7xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-8" variants={itemVariants}>
-                        Your Health, Reimagined with <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-indigo-600">Intelligent Care</span>
+                        Your Health, Reimagined with <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-600">Intelligent Care</span>
                     </motion.h1>
 
                     <motion.p className="mt-4 max-w-2xl mx-auto text-xl text-slate-500 leading-relaxed mb-12" variants={itemVariants}>

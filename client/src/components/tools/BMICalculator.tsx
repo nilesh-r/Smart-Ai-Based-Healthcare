@@ -39,7 +39,7 @@ const BMICalculator = () => {
     return (
         <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700">
             <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                <Activity className="text-blue-500" />
+                <Activity className="text-primary-500" />
                 BMI Calculator
             </h3>
 

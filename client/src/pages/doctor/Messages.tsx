@@ -76,7 +76,7 @@ const Messages = () => {
         <div className="h-[calc(100vh-140px)] flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 overflow-hidden">
             <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between bg-gray-50 dark:bg-gray-900/50">
                 <div className="flex items-center gap-3">
-                    <div className="bg-pink-100 p-2 rounded-full text-pink-600">
+                    <div className="bg-primary-100 p-2 rounded-full text-primary-600">
                         <MessageSquare size={20} />
                     </div>
                     <div>
@@ -97,8 +97,8 @@ const Messages = () => {
                 {messages.map((msg) => (
                     <div key={msg.id} className={`flex ${msg.sender_id === user?.id ? 'justify-end' : 'justify-start'}`}>
                         <div className={`max-w-[70%] rounded-2xl p-3 px-5 ${msg.sender_id === user?.id
-                                ? 'bg-blue-600 text-white rounded-br-none'
-                                : 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white rounded-bl-none'
+                            ? 'bg-primary-600 text-white rounded-br-none'
+                            : 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white rounded-bl-none'
                             }`}>
                             <p className="text-sm">{msg.content}</p>
                             <p className="text-[10px] opacity-70 mt-1 text-right">
@@ -114,7 +114,7 @@ const Messages = () => {
             <form onSubmit={sendMessage} className="p-4 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 flex gap-2">
                 <input
                     type="text"
-                    className="flex-1 rounded-xl border border-gray-300 dark:border-gray-600 px-4 py-2 focus:outline-none focus:border-blue-500 dark:bg-gray-800 dark:text-white"
+                    className="flex-1 rounded-xl border border-gray-300 dark:border-gray-600 px-4 py-2 focus:outline-none focus:border-primary-500 dark:bg-gray-800 dark:text-white"
                     placeholder="Type a message..."
                     value={newMessage}
                     onChange={(e) => setNewMessage(e.target.value)}

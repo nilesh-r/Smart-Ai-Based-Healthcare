@@ -45,7 +45,7 @@ const MedicalReports = () => {
     return (
         <div className="space-y-6">
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
-                <FileText className="text-orange-500" />
+                <FileText className="text-secondary-500" />
                 Medical Reports
             </h1>
 
@@ -56,7 +56,7 @@ const MedicalReports = () => {
                     <input
                         type="text"
                         placeholder="Search reports by patient or title..."
-                        className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-orange-500 outline-none"
+                        className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-secondary-500 outline-none"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
@@ -78,7 +78,7 @@ const MedicalReports = () => {
                             className="bg-white dark:bg-gray-800 p-5 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow flex justify-between items-center"
                         >
                             <div className="flex items-center gap-4">
-                                <div className="h-12 w-12 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 dark:text-orange-400">
+                                <div className="h-12 w-12 rounded-full bg-secondary-100 dark:bg-secondary-900/30 flex items-center justify-center text-secondary-600 dark:text-secondary-400">
                                     <FileText size={24} />
                                 </div>
                                 <div>
@@ -97,7 +97,7 @@ const MedicalReports = () => {
                                         <p className="text-lg font-bold text-gray-900 dark:text-white">{report.health_metric_value}</p>
                                     </div>
                                 )}
-                                <button className="p-2 text-gray-400 hover:text-blue-600 transition-colors">
+                                <button className="p-2 text-gray-400 hover:text-primary-600 transition-colors">
                                     <Download size={20} />
                                 </button>
                             </div>

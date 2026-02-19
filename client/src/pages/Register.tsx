@@ -144,7 +144,7 @@ const Register = () => {
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-1">Specialization</label>
                                     <select
-                                        className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
+                                        className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm rounded-md"
                                         value={specialization}
                                         onChange={(e) => setSpecialization(e.target.value)}
                                     >
@@ -179,7 +179,7 @@ const Register = () => {
                     <div className="text-center text-sm">
                         <p className="text-gray-600">
                             Already have an account?{' '}
-                            <Link to="/login" className="font-medium text-blue-600 hover:text-blue-500">
+                            <Link to="/login" className="font-medium text-primary-600 hover:text-primary-500">
                                 Sign in
                             </Link>
                         </p>

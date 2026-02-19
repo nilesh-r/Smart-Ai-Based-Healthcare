@@ -10,6 +10,7 @@ import BookAppointment from './pages/patient/BookAppointment';
 import Appointments from './pages/patient/Appointments';
 import SymptomChecker from './pages/patient/SymptomChecker';
 import Reports from './pages/patient/Reports';
+import Prescriptions from './pages/patient/Prescriptions';
 import DoctorDashboard from './pages/doctor/Dashboard';
 import Schedule from './pages/doctor/Schedule';
 import Patients from './pages/doctor/Patients';
@@ -50,7 +51,9 @@ function App() {
                     <Route path="/patient/appointments" element={<Appointments />} />
                     <Route path="/patient/book-appointment/:doctorId" element={<BookAppointment />} />
                     <Route path="/patient/reports" element={<Reports />} />
+                    <Route path="/patient/reports" element={<Reports />} />
                     <Route path="/patient/symptom-checker" element={<SymptomChecker />} />
+                    <Route path="/patient/prescriptions" element={<Prescriptions />} />
                   </Route>
                 </Route>
 

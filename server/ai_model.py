@@ -71,6 +71,8 @@ class SymptomPredictor:
             - severity: "low", "medium", or "high".
             - specialist: The type of doctor to see (e.g. Cardiologist).
             - medicine: Recommended over-the-counter medicine for temporary relief (or "None" if unsafe).
+            - recommended_minerals: A list of minerals/vitamins that help (e.g. ["Magnesium", "Vitamin D"]).
+            - mineral_benefits: A short string explaining why these minerals help.
             - advice: A 2-sentence empathetic professional advice.
             """
             
@@ -93,6 +95,8 @@ class SymptomPredictor:
                     "severity": "low",
                     "specialist": "General Physician",
                     "medicine": "None",
+                    "recommended_minerals": [],
+                    "mineral_benefits": "N/A",
                     "advice": "The AI service is currently overwhelmed (Free Tier Limit). Please wait 30 seconds and try again."
                 }
             
@@ -134,12 +138,31 @@ class SymptomPredictor:
         elif "joint" in symptoms: specialist = "Orthopedic"
         elif "head" in symptoms: specialist = "Neurologist"
             
+        # Recommendations
+        minerals = ["Vitamin C", "Zinc"]
+        benefits = "Boosts immunity and general health."
+
+        if "head" in symptoms: 
+            minerals = ["Magnesium", "Vitamin B2"]
+            benefits = "Helps relax blood vessels and nerves."
+        elif "bone" in symptoms or "joint" in symptoms:
+             minerals = ["Calcium", "Vitamin D3"]
+             benefits = "Strengthens bones and reduces inflammation."
+        elif "stomach" in symptoms:
+            minerals = ["Probiotics", "Ginger"]
+            benefits = "Aids digestion and reduces nausea."
+        elif "fatigue" in symptoms or "tired" in symptoms:
+            minerals = ["Iron", "Vitamin B12"]
+            benefits = "Increases energy levels and oxygen transport."
+
         return {
             "condition": random.choice(possible_conditions),
             "confidence": round(random.uniform(0.7, 0.95), 2),
             "severity": severity,
             "specialist": specialist,
             "medicine": medicine,
+            "recommended_minerals": minerals,
+            "mineral_benefits": benefits,
             "advice": f"Based on '{symptoms}', we recommend seeing a {specialist}. Temporary relief: {medicine}."
         }
 

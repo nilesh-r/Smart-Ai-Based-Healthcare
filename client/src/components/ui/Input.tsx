@@ -20,7 +20,7 @@ const Input: React.FC<InputProps & { icon?: React.ElementType }> = ({ label, err
                     </div>
                 )}
                 <input
-                    className={`w-full rounded-md border border-gray-300 dark:border-gray-600 px-3 py-2 ${Icon ? 'pl-10' : ''} text-gray-900 dark:text-white bg-white dark:bg-gray-800 placeholder-gray-500 dark:placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 ${error ? 'border-red-500' : ''} ${className}`}
+                    className={`w-full rounded-md border border-gray-300 dark:border-gray-600 px-3 py-2 ${Icon ? 'pl-10' : ''} text-gray-900 dark:text-white bg-white dark:bg-gray-800 placeholder-gray-500 dark:placeholder-gray-400 focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500 ${error ? 'border-red-500' : ''} ${className}`}
                     {...props}
                 />
             </div>

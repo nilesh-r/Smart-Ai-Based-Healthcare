@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import Button from './ui/Button';
 import { Activity, LogOut, User, Shield } from 'lucide-react';
+import NotificationDropdown from './NotificationDropdown';
 
 const Navbar = () => {
     const { session, signOut, profile } = useAuth();
@@ -19,10 +20,10 @@ const Navbar = () => {
                 <div className="flex justify-between h-16">
                     <div className="flex items-center">
                         <Link to="/" className="flex-shrink-0 flex items-center group">
-                            <div className="p-2 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                            <div className="p-2 rounded-lg bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 group-hover:bg-primary-600 group-hover:text-white transition-all duration-300">
                                 <Activity className="h-6 w-6" />
                             </div>
-                            <span className="ml-3 text-xl font-bold tracking-tight text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                            <span className="ml-3 text-xl font-bold tracking-tight text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                                 HealthAI
                             </span>
                         </Link>
@@ -39,6 +40,7 @@ const Navbar = () => {
                                         {profile?.role}
                                     </span>
                                 </div>
+                                <NotificationDropdown />
                                 <Button variant="outline" size="sm" onClick={handleSignOut} className="dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white transition-colors">
                                     <LogOut className="h-4 w-4 mr-2" />
                                     Sign Out
@@ -46,12 +48,12 @@ const Navbar = () => {
                             </div>
                         ) : (
                             <>
-                                <Link to="/login" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Log In</Link>
+                                <Link to="/login" className="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Log In</Link>
                                 <Link to="/admin/login" className="text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium flex items-center transition-colors">
                                     <Shield className="w-4 h-4 mr-1" />
                                     Admin
                                 </Link>
-                                <Link to="/register" className="bg-gradient-to-r from-blue-600 to-blue-500 text-white px-5 py-2 rounded-lg text-sm font-medium hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300 transform hover:-translate-y-0.5">
+                                <Link to="/register" className="bg-gradient-to-r from-primary-600 to-primary-500 text-white px-5 py-2 rounded-lg text-sm font-medium hover:shadow-lg hover:shadow-primary-500/30 transition-all duration-300 transform hover:-translate-y-0.5">
                                     Sign Up
                                 </Link>
                             </>

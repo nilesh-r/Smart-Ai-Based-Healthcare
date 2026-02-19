@@ -71,7 +71,7 @@ const Schedule = () => {
                                             type="checkbox"
                                             checked={schedule[day]?.available ?? true}
                                             onChange={(e) => handleChange(day, 'available', e.target.checked)}
-                                            className="form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-500"
+                                            className="form-checkbox h-5 w-5 text-primary-600 rounded focus:ring-primary-500"
                                         />
                                         <span className="text-sm text-gray-600">Available</span>
                                     </label>
@@ -84,7 +84,7 @@ const Schedule = () => {
                                                     type="time"
                                                     value={schedule[day]?.start ?? '09:00'}
                                                     onChange={(e) => handleChange(day, 'start', e.target.value)}
-                                                    className="pl-8 block w-full sm:text-sm border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                                                    className="pl-8 block w-full sm:text-sm border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"
                                                 />
                                             </div>
                                             <span className="text-gray-400">-</span>
@@ -94,7 +94,7 @@ const Schedule = () => {
                                                     type="time"
                                                     value={schedule[day]?.end ?? '17:00'}
                                                     onChange={(e) => handleChange(day, 'end', e.target.value)}
-                                                    className="pl-8 block w-full sm:text-sm border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                                                    className="pl-8 block w-full sm:text-sm border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"
                                                 />
                                             </div>
                                         </div>

@@ -108,7 +108,7 @@ const FindDoctor = () => {
                     </div>
                     <input
                         type="text"
-                        className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                        className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                         placeholder="Search doctors by name or specialization"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
@@ -116,7 +116,7 @@ const FindDoctor = () => {
                 </div>
                 <div className="sm:w-64">
                     <select
-                        className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
+                        className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm rounded-md"
                         value={specialization}
                         onChange={(e) => setSpecialization(e.target.value)}
                     >
@@ -136,7 +136,7 @@ const FindDoctor = () => {
                         <div key={doc.id} className="bg-white overflow-hidden shadow rounded-lg border border-gray-100 hover:shadow-md transition-shadow">
                             <div className="p-5">
                                 <div className="flex items-center">
-                                    <div className="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-xl">
+                                    <div className="h-12 w-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 font-bold text-xl">
                                         {doc.profiles.full_name?.charAt(0) || 'D'}
                                     </div>
                                     <div className="ml-4">

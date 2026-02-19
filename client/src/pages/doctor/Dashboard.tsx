@@ -70,10 +70,10 @@ const DoctorDashboard = () => {
     };
 
     const quickActions = [
-        { title: 'Add Patient', icon: UserPlus, color: 'bg-purple-500', link: '/doctor/patients?action=add' },
-        { title: 'Write Prescription', icon: Clipboard, color: 'bg-green-500', link: '/doctor/prescriptions' },
-        { title: 'Medical Reports', icon: FileText, color: 'bg-orange-500', link: '/doctor/reports' },
-        { title: 'Messages', icon: MessageSquare, color: 'bg-pink-500', link: '/doctor/messages' },
+        { title: 'Add Patient', icon: UserPlus, color: 'bg-primary-500', link: '/doctor/patients?action=add' },
+        { title: 'Write Prescription', icon: Clipboard, color: 'bg-secondary-500', link: '/doctor/prescriptions' },
+        { title: 'Medical Reports', icon: FileText, color: 'bg-amber-500', link: '/doctor/reports' },
+        { title: 'Messages', icon: MessageSquare, color: 'bg-indigo-500', link: '/doctor/messages' },
     ];
 
     return (
@@ -82,11 +82,11 @@ const DoctorDashboard = () => {
             <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-10 text-white shadow-xl"
+                className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary-600 to-secondary-600 px-8 py-10 text-white shadow-xl"
             >
                 <div className="relative z-10">
                     <h1 className="text-3xl font-bold">Welcome back, Dr. {profile?.full_name?.split(' ')[0] || 'Doctor'}! 👋</h1>
-                    <p className="mt-2 text-blue-100 text-lg max-w-2xl">
+                    <p className="mt-2 text-primary-50 text-lg max-w-2xl">
                         You have <span className="font-bold text-white">{appointments.filter(a => a.status === 'pending').length} pending</span> appointments today.
                         Check your schedule and manage patient requests below.
                     </p>

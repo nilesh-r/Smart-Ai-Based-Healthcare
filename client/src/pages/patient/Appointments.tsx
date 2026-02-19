@@ -54,7 +54,7 @@ const Appointments = () => {
 
             {loading ? (
                 <div className="text-center py-12">
-                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto"></div>
                     <p className="mt-4 text-gray-500">Loading appointments...</p>
                 </div>
             ) : appointments.length === 0 ? (
@@ -69,19 +69,19 @@ const Appointments = () => {
                 <div className="space-y-4">
                     {appointments.map((apt) => (
                         <div key={apt.id} className="glass rounded-xl p-6 shadow-sm hover:shadow-md transition-all border border-gray-100 relative overflow-hidden group">
-                            <div className={`absolute top-0 left-0 w-1 h-full ${apt.status === 'confirmed' ? 'bg-green-500' :
-                                apt.status === 'pending' ? 'bg-yellow-500' :
+                            <div className={`absolute top-0 left-0 w-1 h-full ${apt.status === 'confirmed' ? 'bg-secondary-500' :
+                                apt.status === 'pending' ? 'bg-amber-500' :
                                     'bg-gray-500'
                                 }`}></div>
 
                             <div className="flex flex-col md:flex-row justify-between md:items-center gap-4 pl-4">
                                 <div className="flex items-start space-x-4">
-                                    <div className="flex-shrink-0 h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-lg">
+                                    <div className="flex-shrink-0 h-12 w-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 font-bold text-lg">
                                         {apt.doctors?.profiles?.full_name?.charAt(0) || 'D'}
                                     </div>
                                     <div>
                                         <h3 className="text-lg font-semibold text-gray-900">Dr. {apt.doctors?.profiles?.full_name}</h3>
-                                        <p className="text-sm text-blue-600 font-medium">{apt.doctors?.specialization}</p>
+                                        <p className="text-sm text-primary-600 font-medium">{apt.doctors?.specialization}</p>
                                         <div className="mt-1 flex items-center text-sm text-gray-500 space-x-4">
                                             <span className="flex items-center">
                                                 <Calendar className="mr-1.5 h-4 w-4" />
@@ -96,8 +96,8 @@ const Appointments = () => {
                                 </div>
 
                                 <div className="flex flex-row md:flex-col justify-between items-end gap-2">
-                                    <span className={`px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wide ${apt.status === 'confirmed' ? 'bg-green-100 text-green-800' :
-                                        apt.status === 'pending' ? 'bg-yellow-100 text-yellow-800' :
+                                    <span className={`px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wide ${apt.status === 'confirmed' ? 'bg-secondary-100 text-secondary-800' :
+                                        apt.status === 'pending' ? 'bg-amber-100 text-amber-800' :
                                             'bg-gray-100 text-gray-800'
                                         }`}>
                                         {apt.status}

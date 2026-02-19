@@ -27,9 +27,9 @@ const BookAppointment = () => {
         if (doctorId?.startsWith('mock-')) {
             // Mock Doctor Data
             const mockDoctors: any = {
-                'mock-1': { id: 'mock-1', consultation_fee: 150, profiles: { full_name: 'Dr. Sarah Smith' } },
-                'mock-2': { id: 'mock-2', consultation_fee: 100, profiles: { full_name: 'Dr. John Doe' } },
-                'mock-3': { id: 'mock-3', consultation_fee: 200, profiles: { full_name: 'Dr. Emily White' } }
+                'mock-1': { id: 'mock-1', consultation_fee: 150, profiles: { full_name: 'Dr. Sarah Smith' }, specialization: 'Cardiology' },
+                'mock-2': { id: 'mock-2', consultation_fee: 100, profiles: { full_name: 'Dr. John Doe' }, specialization: 'Pediatrics' },
+                'mock-3': { id: 'mock-3', consultation_fee: 200, profiles: { full_name: 'Dr. Emily White' }, specialization: 'Dermatology' }
             };
             setDoctor(mockDoctors[doctorId] || mockDoctors['mock-1']);
             return;
@@ -135,18 +135,30 @@ const BookAppointment = () => {
             setError(bookingError.message);
             setLoading(false);
         } else {
+            alert("Appointment request sent!");
             navigate('/patient/dashboard');
         }
     };
 
-    if (!doctor) return <div>Loading...</div>;
+    if (!doctor) return <div className="p-8 text-center text-gray-500">Loading doctor details...</div>;
 
     return (
-        <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow">
-            <h1 className="text-2xl font-bold mb-6">Book Appointment with Dr. {doctor.profiles?.full_name}</h1>
+        <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-soft-xl border border-primary-50">
+            <h1 className="text-2xl font-bold mb-6 text-primary-900">Book Appointment</h1>
+
+            <div className="bg-primary-50 p-4 rounded-xl mb-6 flex items-center">
+                <div className="bg-white p-3 rounded-full mr-4 shadow-sm">
+                    <Calendar className="text-primary-600 h-6 w-6" />
+                </div>
+                <div>
+                    <p className="text-sm text-primary-600 font-bold uppercase tracking-wider">Doctor</p>
+                    <p className="text-lg font-bold text-gray-900">{doctor.profiles?.full_name}</p>
+                    <p className="text-sm text-gray-600">{doctor.specialization}</p>
+                </div>
+            </div>
 
             <form onSubmit={handleBooking} className="space-y-6">
-                {error && <div className="text-red-500 p-3 bg-red-50 rounded">{error}</div>}
+                {error && <div className="text-red-500 p-3 bg-red-50 rounded border border-red-100">{error}</div>}
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <Input
@@ -169,22 +181,23 @@ const BookAppointment = () => {
                 <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Symptoms / Reason for Visit</label>
                     <textarea
-                        className="w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all"
                         rows={4}
                         value={symptoms}
                         onChange={(e) => setSymptoms(e.target.value)}
                         required
+                        placeholder="Briefly describe your symptoms..."
                     />
                 </div>
 
-                <div className="bg-blue-50 p-4 rounded-md">
-                    <h3 className="font-medium text-blue-900">Appointment Summary</h3>
-                    <p className="text-sm text-blue-700 mt-1">
-                        Consultation Fee: ${doctor.consultation_fee}
-                    </p>
+                <div className="bg-gray-50 p-4 rounded-xl border border-gray-100">
+                    <div className="flex justify-between items-center">
+                        <span className="font-medium text-gray-700">Consultation Fee</span>
+                        <span className="text-xl font-bold text-gray-900">${doctor.consultation_fee}</span>
+                    </div>
                 </div>
 
-                <Button type="submit" className="w-full" isLoading={loading}>
+                <Button type="submit" className="w-full py-4 text-lg rounded-xl shadow-lg shadow-primary-500/30" isLoading={loading}>
                     Confirm Appointment
                 </Button>
             </form>

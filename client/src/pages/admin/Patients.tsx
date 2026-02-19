@@ -52,7 +52,7 @@ const AdminPatients = () => {
         <div className="space-y-6">
             <div className="flex justify-between items-center">
                 <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100 flex items-center">
-                    <Users className="mr-3 h-8 w-8 text-green-600" />
+                    <Users className="mr-3 h-8 w-8 text-secondary-600" />
                     Manage Patients
                 </h1>
                 <Button onClick={() => alert('Invite Patient Feature Coming Soon!')}>
@@ -67,7 +67,7 @@ const AdminPatients = () => {
                     <input
                         type="text"
                         placeholder="Search by name or email..."
-                        className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-500 bg-gray-50 dark:bg-gray-700 dark:text-white"
+                        className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-secondary-500 bg-gray-50 dark:bg-gray-700 dark:text-white"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
@@ -103,7 +103,7 @@ const AdminPatients = () => {
                                         <td className="px-6 py-4 whitespace-nowrap">
                                             <div className="flex items-center">
                                                 <div className="h-10 w-10 flex-shrink-0">
-                                                    <div className="h-10 w-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold text-lg">
+                                                    <div className="h-10 w-10 rounded-full bg-secondary-100 flex items-center justify-center text-secondary-600 font-bold text-lg">
                                                         {patient.full_name?.charAt(0) || 'P'}
                                                     </div>
                                                 </div>
@@ -119,14 +119,14 @@ const AdminPatients = () => {
                                             {new Date(patient.created_at).toLocaleDateString()}
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap">
-                                            <span className="flex items-center text-green-500 text-sm font-medium">
+                                            <span className="flex items-center text-secondary-500 text-sm font-medium">
                                                 <CheckCircle className="w-4 h-4 mr-1" />
                                                 Active
                                             </span>
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                             <button
-                                                className="text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-300 mr-4"
+                                                className="text-primary-600 hover:text-primary-900 dark:text-primary-400 dark:hover:text-primary-300 mr-4"
                                                 onClick={() => alert(`View Profile: ${patient.full_name} (Coming Soon)`)}
                                             >
                                                 <Edit className="w-5 h-5" />
